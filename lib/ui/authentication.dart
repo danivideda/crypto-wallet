@@ -1,3 +1,5 @@
+import 'package:crypto_wallet/net/flutterfire.dart';
+import 'package:crypto_wallet/ui/home_view.dart';
 import 'package:flutter/material.dart';
 
 class Authentication extends StatefulWidget {
@@ -24,16 +26,17 @@ class _AuthenticationState extends State<Authentication> {
               decoration: InputDecoration(
                 labelStyle: TextStyle(color: Colors.white),
                 labelText: "Email",
-                hintStyle: TextStyle(color: Colors.white),
+                hintStyle: TextStyle(color: Colors.white24),
                 hintText: "name@example.com",
               ),
             ),
             TextFormField(
               controller: _passwordField,
+              obscureText: true,
               decoration: InputDecoration(
                 labelStyle: TextStyle(color: Colors.white),
                 labelText: "Password",
-                hintStyle: TextStyle(color: Colors.white),
+                hintStyle: TextStyle(color: Colors.white24),
                 hintText: "password",
               ),
             ),
@@ -45,7 +48,18 @@ class _AuthenticationState extends State<Authentication> {
                 color: Colors.white,
               ),
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () async {
+                  bool shouldNavigate =
+                      await register(_emailField.text, _passwordField.text);
+                  if (shouldNavigate) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => HomeView(),
+                      ),
+                    );
+                  }
+                },
                 child: Text("Register"),
               ),
             ),
@@ -57,7 +71,18 @@ class _AuthenticationState extends State<Authentication> {
                 color: Colors.white,
               ),
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () async {
+                  bool shouldNavigate =
+                      await signIn(_emailField.text, _passwordField.text);
+                  if (shouldNavigate) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => HomeView(),
+                      ),
+                    );
+                  }
+                },
                 child: Text("Login"),
               ),
             ),
