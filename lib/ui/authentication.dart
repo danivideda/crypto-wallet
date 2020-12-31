@@ -31,6 +31,12 @@ class _AuthenticationState extends State<Authentication> {
                   labelText: "Email",
                   hintStyle: TextStyle(color: Colors.white24),
                   hintText: "name@example.com",
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white38),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
                 ),
               ),
             ),
@@ -46,6 +52,12 @@ class _AuthenticationState extends State<Authentication> {
                   labelText: "Password",
                   hintStyle: TextStyle(color: Colors.white24),
                   hintText: "password",
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white38),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
                 ),
               ),
             ),
