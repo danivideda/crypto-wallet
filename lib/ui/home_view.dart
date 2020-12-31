@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crypto_wallet/ui/add_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -16,6 +15,7 @@ class _HomeViewState extends State<HomeView> {
       appBar: AppBar(
         title: Text("Crypto Wallet"),
       ),
+
       body: Container(
         decoration: BoxDecoration(color: Colors.white),
         height: MediaQuery.of(context).size.height,
@@ -34,7 +34,6 @@ class _HomeViewState extends State<HomeView> {
                     child: CircularProgressIndicator(),
                   );
                 }
-
                 return ListView(
                   children: snapshot.data.docs.map((document) {
                     return Container(
