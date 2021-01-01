@@ -12,10 +12,6 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Crypto Wallet"),
-      ),
-
       body: Container(
         decoration: BoxDecoration(color: Colors.white),
         height: MediaQuery.of(context).size.height,

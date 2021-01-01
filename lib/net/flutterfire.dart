@@ -47,13 +47,13 @@ Future<bool> addCoin(String id, String amount) async {
     FirebaseFirestore.instance.runTransaction((transaction) async {
       DocumentSnapshot snapshot = await transaction.get(documentReference);
       if (!snapshot.exists) {
-        await documentReference.set({'Amount': value});
+        documentReference.set({'Amount': value});
         return true;
-      } 
+      }
       double newAmount = snapshot.data()['Amount'] + value;
       transaction.update(documentReference, {'Amount': newAmount});
+      return true;
     });
-    return true;
   } catch (e) {
     return false;
   }

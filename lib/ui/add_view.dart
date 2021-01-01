@@ -57,7 +57,7 @@ class _AddViewState extends State<AddView> {
             ),
             child: MaterialButton(
               onPressed: () async {
-                await addCoin(this.dropDownValue, _amountController.text);
+                await addCoin(this.dropDownValue, this._amountController.text);
                 Navigator.of(context).pop();
               },
               child: Text(
